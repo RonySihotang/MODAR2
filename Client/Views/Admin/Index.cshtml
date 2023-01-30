@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Project Management List";
+    Layout = "_AdminLayout";
+}
+<center>
+    <h1 style="color:azure">Project Management System</h1>
+</center>
+<ul id="listPoke"></ul>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="InsertEmployee()" style="border:5px solid white;">
+    Create Project List
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">INSERT PROJECT</h5>
+                <button type="button" class="btn btn-danger " data-bs-dismiss="modal" aria-label="Close" id="close">X</button>
+            </div>
+            <div class="modal-body">
+                <form id="formModal" novalidate>
+                          <div class="mb-3">
+                    <label for="id" class="form-label">id</label>
+                        <input name="id" type="text" class="form-control" id="id" required >
+                </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Project Name</label>
+                        <input name="name" type="text" class="form-control" id="name" required>
+                    </div>
+@*
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input name="description" type="text" class="form-control" id="description" required>
+
+                    </div>*@
+                    <div class="mb-3">
+                        <label for="description" class="form-label">description</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" class="form-select" id="status" required>
+                            <option value="0">Pending</option>
+                            <option value="1">Progress</option>
+                            <option value="2">Complete</option>
+                        </select>
+                    </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="startdate" class="form-label">Start Date</label>
+                                <input name="startdate" type="date" class="form-control" id="startdate" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="enddate" class="form-label">End Date</label>
+                                <input name="enddate" type="date" class="form-control" id="enddate" required>
+                            </div>
+                        </div>
+                    <div class="mb-3">
+                        <label for="manager" class="form-label">Manager</label>
+                        <select name="manager" class="form-select" id="manager"  required>
+
+                            <option value="3">Manager</option>
+                            <option value="4">Manager HRD</option>
+                        </select>
+                    
+                    </div>
+                    <div class="mb-3">
+                        <label for="employees" class="form-label">Project Team Members</label>
+                        <select name="employees[]" class="form-select" id="employees" multiple="multiple" required> 
+
+                           
+                        </select>
+
+                        @*<option selected disabled value="">Choose...</option>
+                        <option value="0">Calvin</option>
+                        <option value="1">Rony</option>
+                        <option value="2">Irfan Bachdim</option>*@
+                  @*      <div class="multi_select_box">
+                            <select class="multi_select" multiple>
+                                <option>monday</option>
+                                         <option>monday</option>
+                                                  <option>monday</option>
+                                                           <option>monday</option>
+                                                           v
+                            </select>
+                        </div>*@
+                    </div>
+
+                    <center>
+                        <button class="btn btn-primary" id="Insertbutton" type="submit">Submit</button>
+                    </center>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <table id="myTable" class="table table-primary table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Id Project</th>
+                <th>Project Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Start_Date</th>
+                <th>End_Date</th>
+                <th>Manager</th>
+                <th>Project Team Members</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+
+    </table>
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalPokeDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
